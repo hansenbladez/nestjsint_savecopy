@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "ce90b386-b629-4317-b7ba-a960a6823588",
+		"name": "intpoller-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users_endpoint",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"pm.test(\"Status test\", function () {\r",
+									"    const jsonResponse = pm.response.json();\r",
+									"    pm.environment.set(\"_token\", jsonResponse.token);\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "un",
+									"value": "{{un}}",
+									"type": "text"
+								},
+								{
+									"key": "pw",
+									"value": "{{pw}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8989/users/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users/profile - page_test",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8989/users/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "creating_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "un",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "pw",
+									"value": "test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8989/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8989",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Polls",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "poll_title",
+							"value": "content",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8989/polls",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"polls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Polls",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8989/polls",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"polls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getpoll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8989/polls/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"polls",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "votepoll",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8989/polls/1/yes",
+					"host": [
+						"localhost"
+					],
+					"port": "8989",
+					"path": [
+						"polls",
+						"1",
+						"yes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

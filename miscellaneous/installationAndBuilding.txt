@@ -1,0 +1,48 @@
+
+
+////----software requirement
+1. nodejs (you can use the stable version)
+2. MySQL database
+    the quickest way to get it. 
+    Using XAMPP and activate MySQL >> port, username and password >> check .env files
+3. postman 
+    this is just for endpoint test. so there is no need to use gazilion unit test
+    just use integration test from postman
+4. MySQL Workbench
+    the best case to lookup your database but this is optional and you can use
+    http://localhost/phpmyadmin if you start apache web-server on XAMPP
+5. using powershell as command
+
+//installation topic and usage
+https://github.com/nestjs/typescript-starter
+https://docs.nestjs.com/
+
+//business topic
+1. copy try (SUCCESS)
+2. what is this backend do?
+    its just creating a poll and you can voted
+    voted do one time and its notfully stack because when others do it you can do it too
+    why i build this way?
+    because there is no requirement to do so
+    https://docs.google.com/document/d/1RtXFFwee0zcIN5s4EJ-Sxn_wuPHtL03Pio8Z2JHUgdQ/edit#
+
+
+////---- step by step
+1. copying this file rather than using new project on CLI command (nest new project-name)
+2. package installation
+    use >> npm i
+    if there is a risk security package management just (yeah this is for engineer transparency)
+    use >> npm audit fix
+3. starting application
+    use >> npm run start:dev
+
+
+//error cases
+if database doesnt have this(intpoller) schema name just create it on
+
+
+////----file to import
+1. miscellaneous
+    /intpoller-collection.postman_collection.json
+    /intpoller-content.postman_environment.json
+    this file is useful for testing on postman environment

@@ -1,0 +1,8 @@
+import { ResponseDto } from './response.dto';
+
+describe('ResponseDto', () => {
+  it('should be defined', () => {
+    
+    expect({} as ResponseDto).toBeDefined();
+  });
+});
